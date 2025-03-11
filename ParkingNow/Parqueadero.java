@@ -77,9 +77,38 @@ public class Parqueadero {
                 }
 
                 //Generar la hora de salida aleatoria, Despues de la entrada
-                int entradaMin = convertirHoraAMinutos
+                int entradaMin = convertirHoraAMinutos(entrada);
+                int salidaMin = entradaMin + 1 + (int)(Math.random() * (1320 - entradaMin));
+                if (salidaMin > 1320) salidaMin = 1320; // Máximo 22:00
+                String salida = String.format("%02d:%02d", salidaMin/60, salidaMin%60);
+                System.out.println("Hora salida generada: " + salida);
+
+                //Calcular tarifa
+                 int duracion = salidaMin - entradaMin;
+                int pago = (duracion > 60) ? 2000 : (duracion > 30) ? 800 : 0;
+                System.out.println("Total a pagar: $" + pago);
+
+                //Liberar puesto
+                if (tipo == 1) bajosCC[puesto-1] = false;
+                else altosCC[puesto-1] = false;
+                horasEntrada[index] = null;
+
+                 } else if (opcion == 3) {
+                System.out.println("Hasta luego");
+                break;
+            } else {
+                System.out.println("Opción no válida.");
+            }
+
+
             }
         }
+        scanner.close();
+    }
+    // Convierte "Horas a minutos" a minutos totales
+    private static int convertirHoraAMinutos(String hora) {
+        String[] partes = hora.split(":");
+        return Integer.parseInt(partes[0]) * 60 + Integer.parseInt(partes[1]);
     }
 
 }
