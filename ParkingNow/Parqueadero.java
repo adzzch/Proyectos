@@ -42,7 +42,7 @@ public class Parqueadero {
 
                     // Generar una hora aleatoria entre las 07:00 y 22:00
                     int horaEntradaMin = 420 + (int)(Math.random() * 901);
-                    String horaEntrada = String.format("%02:%02d",
+                    String horaEntrada = String.format("%02d:%02d",
                         horaEntradaMin / 60,
                         horaEntradaMin % 60 );
                     System.out.println("Hora entrada generada: " + horaEntrada);
@@ -58,6 +58,21 @@ public class Parqueadero {
                         horasEntrada[20 + (puesto-1)] = horaEntrada;
                         exito = true;
                     }
+                    System.out.println(exito ? "exito": "Error: Este puesto está ocupado");
+                } else if (opcion == 2) {
+                    //Cobrar
+                    System.out.println("Tipo (1= BajoCC / 2= AltoCC): ");
+                    int tipo = scanner.nextInt();
+                    System.out.println("Numero de puesto: ");
+                    int puesto = scanner.nextInt();
+
+                    // Obtener hora almacenada (Entrada)
+
+                    int index = (tipo == 1) ? puesto-1 : 20 + (puesto-1);
+                    String entrada = horasEntrada[index];
+                    if (entrada == null) {
+                    System.out.println("Puesto no ocupado");
+                    continue;
 
                 }
             }
