@@ -12,6 +12,10 @@ public class Parqueadero {
         while (true) {
             System.out.println("--- MENÚ ---");
             System.out.println("1. Registra tu moto");
+            System.out.println("2. Valor a pagar");
+            System.out.println("3. Salir");
+            System.out.println("Elige: ");
+            
         }
     }
 
