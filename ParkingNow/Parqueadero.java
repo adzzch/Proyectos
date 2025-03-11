@@ -102,10 +102,10 @@ public class Parqueadero {
 
           
         }
+        scanner.close();
     }   
-         scanner.close();
-    
-    
+        
+
     // Convierte "Horas a minutos" a minutos totales
     private static int convertirHoraAMinutos(String hora) {
         String[] partes = hora.split(":");
