@@ -9,13 +9,35 @@ public class Parqueadero {
         boolean[] altosCC = new boolean[10]; //10 Puestos para las motos de alto cc
         String[] horasEntrada = new String[30]; //Almacena la hora en la que entra (índicees 0-19_ bajo)
         
-        while (true) {
+        while (true) { // Menu interactivo
             System.out.println("--- MENÚ ---");
             System.out.println("1. Registra tu moto");
             System.out.println("2. Valor a pagar");
             System.out.println("3. Salir");
             System.out.println("Elige: ");
-            
+            int opcion = scanner.next();
+
+            if (opcion == 1){
+                //Registrar la moto
+                ////Sistema de pago de las motos segun su cilindraje
+
+                System.out.println("Tipo (1= Bajo CC / 2=Alto CC): ");
+                int tipo = scanner.nextInt();
+
+                //Mostrar puestos disponibles
+                if (tipo ==1){
+                    System.out.print("Puestos Bajos CC [D=Libre, O=Ocupado]: ");
+                    for (int i = 0; i < 20; i++){
+                        System.out.print((i+1) + (bajosCC[i] ? "O " : "D "));
+                    }
+                    } else {
+                        System.out.println("Puestos Altos CC [D=Libre, O=Ocupado]");
+                        for(int 1 = 0; i <10; i++) {
+                            System.out.print((i+1) + (altosCC[i] ? "O " : "D "));
+                        }
+                    }
+                }
+            }
         }
     }
 
