@@ -7,7 +7,7 @@ public class Parqueadero {
         //Arrreglos para controlar la disponibilidad de puestos
         boolean[] bajoCC = new boolean[20];  //20 puestos para las motos de baja cc(Falso es = libre)
         boolean[] altoCC = new boolean[10]; //10 Puestos para las motos de alto cc
-        String[] horaEntrada = new String[30]; //Almacena la hora en la que entra (índicees 0-19_ bajo)
+        String[] horasEntrada = new String[30]; //Almacena la hora en la que entra (índicees 0-19_ bajo)
         
         while (true) { // Menu interactivo
             System.out.println("--- MENÚ ---");
@@ -75,6 +75,9 @@ public class Parqueadero {
                     continue;
 
                 }
+
+                //Generar la hora de salida aleatoria, Despues de la entrada
+                int entradaMin = convertirHoraAMinutos
             }
         }
     }
