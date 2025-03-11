@@ -93,18 +93,19 @@ public class Parqueadero {
                 else altosCC[puesto-1] = false;
                 horasEntrada[index] = null;
 
-                 } else if (opcion == 3) {
+            } else if (opcion == 3) {
                 System.out.println("Hasta luego");
                 break;
             } else {
                 System.out.println("Opción no válida.");
             }
 
-
-            }
+          
         }
-        scanner.close();
-    }
+    }   
+         scanner.close();
+    
+    
     // Convierte "Horas a minutos" a minutos totales
     private static int convertirHoraAMinutos(String hora) {
         String[] partes = hora.split(":");
