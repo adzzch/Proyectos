@@ -24,11 +24,13 @@ public class Parqueadero {
                 System.out.println("Tipo (1= Bajo CC / 2=Alto CC): ");
                 int tipo = scanner.nextInt();
 
+
                 //Mostrar puestos disponibles
-                if (tipo ==1){
+                if (tipo == 1){
                     System.out.print("Puestos Bajos CC [D=Libre, O=Ocupado]: ");
                     for (int i = 0; i < 20; i++){
                         System.out.print((i+1) + (bajosCC[i] ? "O " : "D "));
+                        
                     }
                     } else {
                         System.out.println("Puestos Altos CC [D=Libre, O=Ocupado]");
