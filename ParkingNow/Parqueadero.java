@@ -15,7 +15,7 @@ public class Parqueadero {
             System.out.println("2. Valor a pagar");
             System.out.println("3. Salir");
             System.out.println("Elige: ");
-            int opcion = scanner.next();
+            int opcion = scanner.nextInt();
 
             if (opcion == 1){
                 //Registrar la moto
@@ -50,7 +50,7 @@ public class Parqueadero {
                     // Guardar registro
                     boolean exito = false;
                     if (tipo == 1 && puesto <= 20 && !bajosCC[puesto - 1]) {
-                        bajoCC[puesto-1] = true;
+                        bajosCC[puesto-1] = true;
                         horasEntrada[puesto-1] = horaEntrada;
                         exito = true;
                     } else if (tipo == 2 && puesto <= 10 && !altosCC[puesto - 1]) {
@@ -104,7 +104,7 @@ public class Parqueadero {
             }
         }
         scanner.close();
-    }
+    
     // Convierte "Horas a minutos" a minutos totales
     private static int convertirHoraAMinutos(String hora) {
         String[] partes = hora.split(":");
