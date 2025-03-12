@@ -5,11 +5,11 @@ public class Parqueadero {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         // Arrreglos para controlar la disponibilidad de puestos
-        boolean[] bajosCC = new boolean[20]; // 20 puestos para las motos de baja cc(Falso es = libre)
+        boolean[] bajosCC = new boolean[20]; // 20 puestos para las motos de baja cc (Falso es = libre)
         boolean[] altosCC = new boolean[10]; // 10 Puestos para las motos de alto cc
-        String[] horasEntrada = new String[30]; // Almacena la hora en la que entra (índicees 0-19_ bajo)
+        String[] horasEntrada = new String[30]; // Almacena la hora en la que entra (índices 0-19_ bajo)
 
-        while (true) { // Menu interactivo
+        while (true) { // Menú interactivo
             System.out.println("\n--- MENÚ ---");
             System.out.println("1. Registra tu moto");
             System.out.println("2. Valor a pagar");
@@ -19,7 +19,7 @@ public class Parqueadero {
 
             if (opcion == 1) {
                 // Registrar la moto
-                //// Sistema de pago de las motos segun su cilindraje
+                //// Sistema de pago de las motos según su cilindraje
                 int tipo;
                 do {
                     System.out.print("Tipo (1=Bajo CC / 2=Alto CC): ");
@@ -66,6 +66,7 @@ public class Parqueadero {
                 }
 
                 System.out.println(exito ? "Éxito" : "Error: Este puesto no existe");
+
             } else if (opcion == 2) {
                 // Cobrar
                 System.out.print("Tipo (1=BajoCC / 2=AltoCC): ");
@@ -89,6 +90,7 @@ public class Parqueadero {
                     System.out.println("Error: Puesto no válido para motos de alta CC.");
                     continue;
                 }
+
                 // Obtener hora almacenada (Entrada)
 
                 int index = (tipo == 1) ? puesto - 1 : 20 + (puesto - 1);
@@ -100,10 +102,11 @@ public class Parqueadero {
                 }
 
                 // Generar la hora de salida aleatoria, Despues de la entrada
+
                 int entradaMin = convertirHoraAMinutos(entrada);
                 int salidaMin = entradaMin + 1 + (int) (Math.random() * (1320 - entradaMin));
                 if (salidaMin > 1320)
-                    salidaMin = 1320; // Máximo 22:00
+                    salidaMin = 1320;
                 String salida = String.format("%02d:%02d", salidaMin / 60, salidaMin % 60);
                 System.out.println("Hora salida generada: " + salida);
 
