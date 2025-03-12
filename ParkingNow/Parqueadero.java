@@ -17,9 +17,10 @@ public class Parqueadero {
             System.out.print("Elige: ");
             int opcion = scanner.nextInt();
 
+            // Registrar moto
+
             if (opcion == 1) {
-                // Registrar la moto
-                //// Sistema de pago de las motos según su cilindraje
+                
                 int tipo;
                 do {
                     System.out.print("Tipo (1=Bajo CC / 2=Alto CC): ");
@@ -67,8 +68,10 @@ public class Parqueadero {
 
                 System.out.println(exito ? "Éxito" : "Error: Este puesto no existe");
 
+            // Valor a pagar
+
             } else if (opcion == 2) {
-                // Cobrar
+
                 System.out.print("Tipo (1=BajoCC / 2=AltoCC): ");
                 int tipo = scanner.nextInt();
 
@@ -121,6 +124,8 @@ public class Parqueadero {
                 else
                     altosCC[puesto - 1] = false;
                 horasEntrada[index] = null;
+
+            // Salir    
 
             } else if (opcion == 3) {
                 System.out.println("Hasta luego");
