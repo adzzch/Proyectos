@@ -25,7 +25,7 @@ public class Parqueadero {
                     System.out.print("Tipo (1=Bajo CC / 2=Alto CC): ");
                     tipo = scanner.nextInt();
                     if (tipo < 1 || tipo > 2) {
-                        System.out.println("Error: Opcion no valida/No existente");
+                        System.out.println("Error: Opcion no valida");
                     }
                 } while (tipo < 1 || tipo > 2);
 
@@ -65,14 +65,30 @@ public class Parqueadero {
                         horasEntrada[20 + (puesto-1)] = horaEntrada;
                         exito = true;
                     }
-                    System.out.println(exito ? "exito": "Error: Este puesto no existe");
-                } else if (opcion == 2) {
-                    //Cobrar
-                    System.out.println("Tipo (1= BajoCC / 2= AltoCC): ");
-                    int tipo = scanner.nextInt();
-                    System.out.println("Numero de puesto: ");
-                    int puesto = scanner.nextInt();
 
+                     System.out.println(exito ? "Éxito" : "Error: Este puesto no existe");
+                } else if (opcion == 2) {
+                // Cobrar
+                System.out.print("Tipo (1=BajoCC / 2=AltoCC): ");
+                int tipo = scanner.nextInt();
+
+                // Validar tipo de moto
+                if (tipo != 1 && tipo != 2) {
+                    System.out.println("Error: Opción no valida.");
+                    continue; // Volver al menú principal
+                }
+
+                System.out.print("Número de puesto: ");
+                int puesto = scanner.nextInt();
+
+                // Validar que el puesto exista
+                if ((tipo == 1 && (puesto < 1 || puesto > 20))) {
+                    System.out.println("Error: Puesto no válido para motos de baja CC.");
+                    continue; // Volver al menú principal
+                } else if (tipo == 2 && (puesto < 1 || puesto > 10)) {
+                    System.out.println("Error: Puesto no válido para motos de alta CC.");
+                    continue;
+                }
                     // Obtener hora almacenada (Entrada)
 
                     int index = (tipo == 1) ? puesto-1 : 20 + (puesto-1);
