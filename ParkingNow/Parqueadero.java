@@ -8,8 +8,10 @@ public class Parqueadero {
         boolean[] bajosCC = new boolean[20]; // 20 puestos para las motos de baja cc (Falso es = libre)
         boolean[] altosCC = new boolean[10]; // 10 Puestos para las motos de alto cc
         String[] horasEntrada = new String[30]; // Almacena la hora en la que entra (índices 0-19_ bajo)
+        
+        // Menú interactivo
 
-        while (true) { // Menú interactivo
+        while (true) {
             System.out.println("\n--- MENÚ ---");
             System.out.println("1. Registra tu moto");
             System.out.println("2. Valor a pagar");
