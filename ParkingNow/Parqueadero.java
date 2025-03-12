@@ -10,24 +10,28 @@ public class Parqueadero {
         String[] horasEntrada = new String[30]; //Almacena la hora en la que entra (índicees 0-19_ bajo)
         
         while (true) { // Menu interactivo
-            System.out.println("--- MENÚ ---");
+            System.out.println("\n--- MENÚ ---");
             System.out.println("1. Registra tu moto");
             System.out.println("2. Valor a pagar");
             System.out.println("3. Salir");
-            System.out.println("Elige: ");
+            System.out.print("Elige: ");           
             int opcion = scanner.nextInt();
 
             if (opcion == 1){
-                //Registrar la moto
-                ////Sistema de pago de las motos segun su cilindraje
-
-                System.out.println("Tipo (1= Bajo CC / 2=Alto CC): ");
-                int tipo = scanner.nextInt();
-
+                // Registrar la moto
+                //// Sistema de pago de las motos segun su cilindraje
+                int tipo;
+                do {
+                    System.out.print("Tipo (1=Bajo CC / 2=Alto CC): ");
+                    tipo = scanner.nextInt();
+                    if (tipo < 1 || tipo > 2) {
+                        System.out.println("Error: Opcion no valida/No existente");
+                    }
+                } while (tipo < 1 || tipo > 2);
 
                 //Mostrar puestos disponibles
                 if (tipo == 1){
-                    System.out.print("Puestos Bajos CC [D=Libre, O=Ocupado]: ");
+                    System.out.println("Puestos Bajos CC [D=Libre, O=Ocupado]: ");
                     for (int i = 0; i < 20; i++){
                         System.out.print((i+1) + (bajosCC[i] ? "O " : "D "));
                         
@@ -38,9 +42,10 @@ public class Parqueadero {
                             System.out.print((i+1) + (altosCC[i] ? "O " : "D "));
                         }
                     }
-
-                    System.out.println("Elige el puesto que desees");
+                    
+                    System.out.print("Elige el puesto que desees: ");
                     int puesto = scanner.nextInt();
+
 
                     // Generar una hora aleatoria entre las 07:00 y 22:00
                     int horaEntradaMin = 420 + (int)(Math.random() * 901);
@@ -60,7 +65,7 @@ public class Parqueadero {
                         horasEntrada[20 + (puesto-1)] = horaEntrada;
                         exito = true;
                     }
-                    System.out.println(exito ? "exito": "Error: Este puesto está ocupado");
+                    System.out.println(exito ? "exito": "Error: Este puesto no existe");
                 } else if (opcion == 2) {
                     //Cobrar
                     System.out.println("Tipo (1= BajoCC / 2= AltoCC): ");
