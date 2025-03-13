@@ -29,7 +29,7 @@ public class Parqueadero {
                     tipo = scanner.nextInt();
                     if (tipo < 1 || tipo > 2) {
                         System.out.println("Error: Opcion no valida.");
-                    
+                    }
                 } while (tipo < 1 || tipo > 2);
 
                 // Mostrar puestos disponibles
