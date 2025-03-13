@@ -28,7 +28,7 @@ public class Parqueadero {
                     System.out.print("Tipo (1=Bajo CC / 2=Alto CC): ");
                     tipo = scanner.nextInt();
                     if (tipo < 1 || tipo > 2) {
-                        System.out.println("Error: Opcion no valida");
+                        System.out.println("Error: Opcion no valida.");
                     }
                 } while (tipo < 1 || tipo > 2);
 
